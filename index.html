@@ -1,5 +1,25 @@
 <html>
+<head>  
+</head>
 <body>
-  <h1>Hello world, 123</h1>
+  <h1><a id="myBtn">Click me</a></h1>
 </body>
+<script>
+  document.getElementById("myBtn").addEventListener("click", (event)=>{
+    fetch("https://13mxar4it2.execute-api.ap-southeast-2.amazonaws.com/Prod/publish", {
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      mode: 'no-cors', // no-cors, *cors, same-origin
+      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+      // credentials: 'omit', // include, *same-origin, omit
+      headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      redirect: 'follow', // manual, *follow, error
+      referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+      body: JSON.stringify("{}") // body data type must match "Content-Type" header
+    });    
+    event.preventDefault();
+  });
+</script>
 </html
